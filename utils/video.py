@@ -17,8 +17,8 @@ from torchao.quantization import Int8WeightOnlyConfig
 # =========================
 # Global config
 # =========================
-MODEL_ID = "/runpod-volume/models/Wan2.2-I2V-A14B-Diffusers"
-LORA_ID = "/runpod-volume/models/lora/WanVideo_comfy"
+MODEL_ID = "/workspace/models/Wan-AI/Wan2.2-I2V-A14B-Diffusers"
+LORA_ID = "/workspace/models/lora/WanVideo_comfy"
 DEVICE = "cuda"
 
 FIXED_FPS = 16
@@ -101,13 +101,13 @@ def load_pipe():
     print("⚡ Loading Lightning LoRA...")
 
     pipe.load_lora_weights(
-        "/runpod-volume/models/lora/WanVideo_comfy",
+        "/workspace/models/lora/WanVideo_comfy",
         weight_name="Lightx2v/lightx2v_I2V_14B_480p_cfg_step_distill_rank128_bf16.safetensors",
         adapter_name="lightx2v",
     )
 
     pipe.load_lora_weights(
-        "/runpod-volume/models/lora/WanVideo_comfy",
+        "/workspace/models/lora/WanVideo_comfy",
         weight_name="Lightx2v/lightx2v_I2V_14B_480p_cfg_step_distill_rank128_bf16.safetensors",
         adapter_name="lightx2v_2",
         load_into_transformer_2=True,
